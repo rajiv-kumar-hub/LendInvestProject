@@ -1,0 +1,26 @@
+<template>
+    <template if:true={isSendingSMS}>
+        <lightning-spinner
+            alternative-text="SendingSMS"
+            size="medium"
+            variant="brand"
+        ></lightning-spinner>
+    </template>
+    <lightning-card title="Send SMS to Gold Customers" icon-name="standard:sms">
+        <div class="slds-p-around_medium">
+            This component provides ability to send any custom SMS messages to GOLD customers 
+            <lightning-helptext content="Send SMS using Twilio SMS API"></lightning-helptext>
+        </div>
+
+        <div class="slds-p-around_medium">
+            <label for="CustomerContactNo"><b>Please enter gold customer phone number:</b></label>
+            <br class="d-none" />
+            <lightning-input type="tel" name="CustomerContactNo" class="form-control" variant="label-hidden" pattern="^(\+)\d{10,12}$" maxlength="13" message-when-pattern-mismatch="Please enter a valid phone number" placeholder="type here..." oncommit={handleFieldChange} required></lightning-input>
+            <label for="SmsMessage"><b>Please enter the message:</b></label>
+            <br class="d-none" />
+            <lightning-textarea name="SmsMessage" class="form-control" placeholder="type here..." variant="label-hidden" maxlength="60" required onchange={handleFieldChange}></lightning-textarea>
+            <lightning-button variant="brand" label="Submit" title="Send SMS" onclick={handleSubmit} class="slds-align_absolute-center"></lightning-button>
+        </div>
+    </lightning-card>
+    
+</template>

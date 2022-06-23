@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Type__c</fullName>
+    <description>Set the Account Type based on total amount on Won opportunities</description>
+    <externalId>false</externalId>
+    <formula>IF( Total_Amount_of_Won_Opportunities__c &gt; 50000 , &apos;GOLD&apos;,
+IF( Total_Amount_of_Won_Opportunities__c &gt; 25000 , &apos;SILVER&apos;,
+IF( Total_Amount_of_Won_Opportunities__c &gt; 10000 , &apos;BRONZE&apos;,
+&apos;&apos;
+)))</formula>
+    <inlineHelpText>Set the Account Type based on total amount on Won opportunities</inlineHelpText>
+    <label>Account Type</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>
